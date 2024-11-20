@@ -1,0 +1,49 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+<header>
+    <h1>Bienvenue sur mon Portfolio !</h1>
+    <p>Découvrez mes compétences, mes projets et mon parcours.</p>
+</header>
+
+<section class="hero">
+    <h2>Un monde de données et d'innovation</h2>
+    <img src="{% static 'images/favicon.png' %}" alt="Illustration d'accueil">
+</section>
+
+<section class="section">
+    <h2>Projets Récents</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>Prédiction des inondations</h3>
+            <p>Un projet utilisant des modèles de machine learning pour prévenir les risques d'inondations en temps réel.</p>
+            <a href="{% url 'projects' %}">Voir plus</a>
+        </div>
+        <div class="card">
+            <h3>Détection de fraudes</h3>
+            <p>Un algorithme non supervisé pour identifier les comportements frauduleux dans la consommation énergétique.</p>
+            <a href="{% url 'projects' %}">Voir plus</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Compétences</h2>
+    <div class="skills">
+        <div class="card">
+            <h3>Django</h3>
+            <p>Création d'applications web robustes et sécurisées.</p>
+        </div>
+        <div class="card">
+            <h3>Machine Learning</h3>
+            <p>Analyse de données, classification et prédictions.</p>
+        </div>
+        <div class="card">
+            <h3>Docker</h3>
+            <p>Déploiement d'applications dans des environnements conteneurisés.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

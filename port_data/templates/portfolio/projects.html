@@ -1,0 +1,43 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<title>Projects</title>
+<h2>Mes Projets</h2>
+<section class="section-projects">
+    {% if project %}
+    <div class="projects-container">
+        {% for pro in project %}
+        <div class="project-card">
+            <h3>{{ pro.title }}</h3>
+            <p>{{ pro.description }}</p>
+            <p><strong>Compétences utilisées: </strong> {{pro.skills_used}}</p>
+
+            {% if pro.image_project %}
+                <img class="project-image" src="{{ pro.image_project}}">
+            {% else %}
+                <img class="image-original" src="{% static 'images/ml.png' %}">
+            {% endif %}
+            <div class="links-projects">
+                {% if pro.github_link %}
+                    <a href="{{ pro.github_link}}" target="_blank">Lien Github</a>
+                {% else %}
+                    <p>Pas de Project disponibles</p>
+                {% endif %}
+
+                {% if pro.url_project %}
+                    <p>Voici un démo du project : {{ pro.title}} </p>
+                    <a href="{{ pro.url_project}}" target="_blank">Voir le démo</a>
+                {% endif %}
+            </div>
+            <p class="project-date">Mis à jour le : {{ pro.date_project_update }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else%}
+        <p>Aucun projet disponible </p>
+    {% endif %}
+</section>
+
+{% endblock %}

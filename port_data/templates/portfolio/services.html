@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Mes Services</h2>
+
+<section class="section-services">
+    {% if service %}
+        <div class="services-container">
+            {% for service_pro in service %}
+                <div class="service-card">
+                    <h3>{{ service_pro.title }}</h3>
+                    <p>{{ service_pro.description }}</p>
+                    <p><strong>Prix :</strong> {{ service_pro.price }}€</p>
+                    {% if service_pro.icon %}
+                        <i class="{{ service_pro.icon }}"></i>
+                    {% endif %}
+                    <a href="{% url 'service_request' %}" class="btn btn-primary">Demander ce service</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucun service disponible pour le moment.</p>
+    {% endif %}
+</section>
+{% endblock %}

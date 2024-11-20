@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="icon" type="images/favicon.png" href="{% static 'images/favicon.png' %}" />
+
+    <title>My Portfolio</title>
+</head>
+<body>
+    
+<!-- menu de navigation -->
+    <header>
+        <nav class = 'menu'>
+            <ul>
+                <li><a href="{% url 'home' %}"> Home </a></li>
+                <li><a href="{% url 'about' %}">About me </a></li>
+                <li><a href ="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'contacts-us' %}">Contacts</a></li>
+                <li><a href="{%url 'blog' %}">Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content-principal">
+        <!-- contenu principal-->
+        {% block content %} {% endblock %}
+    </main>
+    <section class="contacts-services">
+        <p>Pour plus d'informations, contactez-moi <a href="{% url 'contacts-us' %}">Contactez-moi</a></p>
+
+        <p>Pour vos demandes de services : <a href="{% url 'services_request' %}">Demandez un service</a></p>
+
+    </section>
+
+    <h3>Newsletters</h3>
+    <section>
+        <p>Pour recevoir des nouvelles</p>
+        <h3>Inscrivez-vous</h3>
+        <form action="" method="post">
+            <label for="name">Enter your name:</label>
+            <input type="name" id="email"  required>
+            <label for="lastname">Enter your Lastname:</label>
+            <input type = "lastname" id="lastname" required>
+            <label for="email">Your Email :</label>
+            <input type="email" id="email" required>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+
+    <footer>
+        <p>@2024 - KOULODJI Eric *** Nous respectons votre vie privée  ***</p>
+    </footer>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Menu de navigation */
+header {
+    background-color: #2c3e50;
+    padding: 10px 0;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.menu ul li a:hover {
+    background-color: #1abc9c;
+    border-radius: 5px;
+}
+
+/* Section Bienvenue */
+#welcome {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#welcome h1 {
+    font-size: 36px;
+    animation: text-scroll 6s linear infinite;
+    color: #2c3e50;
+}
+
+#welcome img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes text-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Section Newsletter */
+#newsletter {
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#newsletter h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#newsletter form input, #newsletter form button {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#newsletter form button {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#newsletter form button:hover {
+    background-color: #16a085;
+}
+
+/* Section Projets */
+#projects {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#projects h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+/* a propos*/
+/* Section globale */
+.section-about-me {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.section-about-me h3 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.section-about-me p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.section-about-me .photo-about {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1abc9c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-about-me a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.section-about-me a:hover {
+    background-color: #16a085;
+}
+
+/* Section Parcours */
+section h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 32px;
+    margin: 30px 0 20px;
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Lien vers les compétences */
+section a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+section a:hover {
+    color: #16a085;
+}
+
+
+/* Style pour la section des articles */
+.articles_list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Style pour chaque article */
+.container-article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.article-list {
+    background: #ffffff;
+    padding: 20px;
+    width: calc(33% - 20px); /* 3 articles par ligne */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.article-list:hover {
+    transform: scale(1.05);
+}
+
+/* Titre de l'article */
+.article-list h3 {
+    font-size: 24px;
+    color: #1abc9c;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Contenu de l'article */
+.article-list p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Image de l'article */
+.blog-article-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.image-original {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Liens de l'article */
+.link-blog a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.link-blog a:hover {
+    background-color: #16a085;
+}
+
+/* Message pour aucun article */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #e74c3c;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .article-list {
+        width: 100%; /* Un seul article par ligne sur mobile */
+    }
+}
+
+
+
+/* Section de contact */
+.form-contact {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f4f6f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Texte introductif */
+.contacts-class {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contacts-class p {
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Champs de formulaire */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    resize: vertical;
+    width: 100%;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: #1abc9c;
+    outline: none;
+}
+
+/* Bouton de soumission */
+input[type="submit"] {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #16a085;
+}
+
+/* Réduire l'espace entre les champs sur mobile */
+@media (max-width: 768px) {
+    .form-contact {
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+}

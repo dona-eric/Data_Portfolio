@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Demander un service</h2>
+
+<p>Vous demandez le service : <strong>{{ service.title }}</strong></p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Soumettre la demande</button>
+</form>
+{% endblock %}

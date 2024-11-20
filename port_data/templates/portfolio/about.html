@@ -1,0 +1,43 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>À Propos</h2>
+<section class="section-about-me">
+    <h3>Qui suis-je ?</h3>
+    {% if about %}
+        <p>
+            Je suis {{ about.nom }} {{ about.prenoms }}, {{ about.biography }}
+        </p>
+        {% if about.profil_pictures %}
+            <img class="photo-about" src="{{ about.profil_pictures.url }}" alt="Photo de profil">
+        {% else %}
+            <img class="photo-about" src="{% static 'images/photo_pictures.jpg' %}" alt="Photo de profil par defaut">
+        {% endif %}
+        {% if about.resume_link %}
+            <p><a href="{{ about.resume_link }}">Télécharger mon CV</a></p>
+        {% endif %}
+    {% else %}
+        <p>Les informations à propos de moi ne sont pas disponibles pour le moment.</p>
+    {% endif %}
+</section>
+
+<h2>Mon Parcours</h2>
+<section>
+    {% if about %}
+        <p>{{ about.biography }}</p>
+    {% else %}
+        <p>Aucune information sur le parcours pour le moment.</p>
+    {% endif %}
+</section>
+
+<h2>Mes Compétences</h2>
+<section>
+    <p>
+        Durant mon parcours académique comme professionnel, j'ai acquis plusieurs compétences
+        techniques et personnelles. Pour en savoir plus : 
+        <a href="{% url 'skills' %}">Mes compétences</a>
+    </p>
+</section>
+{% endblock %}
+

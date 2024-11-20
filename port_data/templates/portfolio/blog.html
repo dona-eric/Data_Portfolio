@@ -1,0 +1,37 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<title> Articles</title>
+<h2>Mes Articles</h2>
+<section class="articles_list">
+    {% if blog_article %}
+    <div class="container-article">
+        {% for blog in blog_article %}
+        <div class="article-list">
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.content }}</p>
+
+            {% if image_blog %}
+                <img class="blog-article-image" src="{{ blog.image_blog}}">
+            {% else %}
+                <img class="image-original" src="{% static 'images/ml.png' %}">
+            {% endif %}
+            <div class="link-blog">
+                {% if blog.url_blog %}
+                    <p>Pour lire l'intégralité des articles  sur {{ blog.title}}, veuillez consulter :</p>
+                    <a href="{{ blog.url_blog }}">Lire plus</a>
+
+                {% endif%}
+
+            </div>
+        {% endfor %}
+
+        </div>
+        {% else %}
+            <p>Aucun article ou blog disponibles </p>
+    {% endif %}
+    </div>
+</section>
+{% endblock %}

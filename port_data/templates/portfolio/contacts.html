@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<title>Contacts</title>
+<section class="form-contact">
+    <h2>Contacts</h2>
+    <div class="contacts-class">
+        <p>Pour nous contacter, veuillez remplir vous renseigner ici..</p>
+        <p>En quoi puis-je vous aider ?</p>
+    </div>
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p}}
+
+        <input type="submit" value="Envoyer">
+
+    </form>
+
+</section>
+
+{% endblock %}

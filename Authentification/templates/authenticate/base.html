@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio</title>
+</head>
+<body>
+
+    <section>
+        <p>Welcome on <strong>DataWorld</strong> ! </p>
+        <i>DataWorld est un monde où nous transformons vos données en de l'or, des insights pertinents.
+            Nous intervenons dans la transformation digitale en aidant les entreprises et les intervenants dans le monde des données
+            à comprendre les faits réels de vos données, à booster votre carrière et augmenter votre chiffres d'affaires en revenus.
+        </i>
+
+    </section>
+
+    {% block content %} {% endblock %}
+ 
+    {% if user.is_authenticated %}
+        <p>Vous etes connectés en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se Deconnecter</a></p>
+    {% endif %}
+
+
+
+
+</body>
+</html>

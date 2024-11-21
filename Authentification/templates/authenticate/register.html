@@ -1,0 +1,24 @@
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+
+    <section class="register-content">
+
+        <p>Etes-vous prets à vous embarquez dans ce monde merveilleux ?</p>
+        <h2>Inscription</h2>
+    </section>
+
+    {% if form.errors %}
+        {{ form.erros }}
+    {% endif %}
+
+    <form action="" method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Inscrivez-vous</button>
+
+    </form>
+
+{% endblock %}

@@ -60,7 +60,7 @@ to create it """
 
 class Contacts(models.Model):
     name = models.CharField(max_length=200)
-    email = models.EmailField()
+    email = models.EmailField(unique = True)
     subject_message = models.TextField()
     content_message = models.TextField()
     sent_at = models.DateTimeField(auto_now_add=True, null=True)
@@ -82,7 +82,7 @@ class Services(models.Model):
 class ServiceRequest(models.Model):
     service = models.ForeignKey("Services", on_delete=models.CASCADE, related_name='request')
     client_name = models.CharField(max_length=150)
-    client_email = models.EmailField()
+    client_email = models.EmailField(unique = True)
     message = models.TextField()
     date_requested = models.DateTimeField(auto_now_add=True, null=True)
 

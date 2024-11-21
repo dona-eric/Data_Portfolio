@@ -1,0 +1,20 @@
+{% extends 'authenticate/base.html' %}
+
+
+{% block content %}
+
+
+    <p>{{ message }}</p>
+
+    <form action="" method="post" novalidate>
+        
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Se connecter</button>
+
+    </form>
+    <p>Etes-vous connectez ? <a href="{% url 'register' %}">Inscrivez-vous maintenant !</a></p>
+
+
+{% endblock %}

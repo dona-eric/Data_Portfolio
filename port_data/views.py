@@ -3,7 +3,10 @@ from .models import About, Articles, Projects, Skills, Contacts, Services, Servi
 from .forms import ContactForms, ServicesForms, ServiceRequestForms
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 # Page d'accueil
+
+@login_required
 def home(request):
     return render(request, 'portfolio/home.html')
 

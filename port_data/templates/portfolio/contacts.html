@@ -3,22 +3,42 @@
 {% load static %}
 {% block content %}
 
-<title>Contacts</title>
-<section class="form-contact">
-    <h2>Contacts</h2>
-    <div class="contacts-class">
-        <p>Pour nous contacter, veuillez remplir vous renseigner ici..</p>
-        <p>En quoi puis-je vous aider ?</p>
-    </div>
+    <title>Contacts</title>
+    <section class="max-w-4xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-semibold text-center text-indigo-600 mb-6">Contactez-moi</h2>
+        
+        <div class="text-center mb-6">
+            <p class="text-lg text-gray-700">Pour nous contacter, veuillez remplir le formulaire ci-dessous.</p>
+            <p class="text-sm text-gray-500">En quoi puis-je vous aider ?</p>
+        </div>
 
-    <form action="" method="post" novalidate>
-        {% csrf_token %}
-        {{ form.as_p}}
+        <form action="" method="post" novalidate class="bg-white p-8 rounded-lg shadow-md">
+            {% csrf_token %}
+            <div class="space-y-4">
+                <!-- Name Field -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+                    {{ form.name }}
+                </div>
 
-        <input type="submit" value="Envoyer">
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    {{ form.email }}
+                </div>
 
-    </form>
+                <!-- Message Field -->
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Votre Message</label>
+                    {{ form.message }}
+                </div>
 
-</section>
+                <!-- Submit Button -->
+                <div>
+                    <input type="submit" value="Envoyer" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                </div>
+            </div>
+        </form>
+    </section>
 
-{% endblock %}
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Newsletter</h2>
+            <p class="text-gray-600">Restez informé de nos dernières actualités et mises à jour</p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-4 p-4 rounded-md {% if message.tags == 'success' %}bg-green-100 text-green-700{% elif message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-blue-100 text-blue-700{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            
+            <div>
+                <label for="{{ form.nom.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                    Nom
+                </label>
+                {{ form.nom }}
+                {% if form.nom.errors %}
+                    <p class="mt-2 text-sm text-red-600">
+                        {{ form.nom.errors|join:", " }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                    Email
+                </label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <p class="mt-2 text-sm text-red-600">
+                        {{ form.email.errors|join:", " }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="terms" name="terms" type="checkbox" required
+                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                </div>
+                <div class="ml-3 text-sm">
+                    <label for="terms" class="font-medium text-gray-700">
+                        J'accepte de recevoir des emails
+                    </label>
+                    <p class="text-gray-500">Vous pouvez vous désabonner à tout moment.</p>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    S'abonner à la newsletter
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-6 text-center text-sm text-gray-500">
+            <p>En vous inscrivant, vous acceptez notre</p>
+            <div class="mt-1">
+                <a href="https://alice-esmeralda.com/politique-de-confidentialite" class="text-indigo-600 hover:text-indigo-500">
+                    Politique de confidentialité
+                </a>
+                <span class="mx-2">et</span>
+                <a href="https://www.leto.legal/guides/newsletters" class="text-indigo-600 hover:text-indigo-500">
+                    Conditions d'utilisation
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

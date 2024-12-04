@@ -2,48 +2,56 @@
 {% load static %}
 {% block content %}
 
-<header>
-    <h1>Bienvenue sur mon Portfolio !</h1>
-    <p>Découvrez mes compétences, mes projets et mon parcours.</p>
-</header>
+    <header class="bg-indigo-600 text-white py-12 text-center">
+        <h1 class="text-4xl font-bold">Bienvenue sur mon Portfolio !</h1>
+        <p class="text-xl mt-4">Découvrez mes compétences, mes projets et mon parcours.</p>
+    </header>
 
-<section class="hero">
-    <h2>Un monde de données et d'innovation</h2>
-    <img src="{% static 'images/favicon.png' %}" alt="Illustration d'accueil">
-</section>
+    <section class="hero bg-gray-200 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-indigo-600 mb-6"><i>Le monde de la Physique, des Mathématiques, la Science des données,
+                de l'IA et de l'innovation !
+            </h2>
+            <img src="{% static 'images/favicon.png' %}" alt="Data Ml" class="mx-auto rounded-lg shadow-lg">
+        </div>
+    </section>
 
-<section class="section">
-    <h2>Projets Récents</h2>
-    <div class="projects">
-        <div class="card">
-            <h3>Prédiction des inondations</h3>
-            <p>Un projet utilisant des modèles de machine learning pour prévenir les risques d'inondations en temps réel.</p>
-            <a href="{% url 'projects' %}">Voir plus</a>
+    <section class="section py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-indigo-600 mb-8">Projets Récents</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-bold text-indigo-600">Prédiction des inondations</h3>
+                    <p class="mt-2 text-gray-700">Un projet utilisant des modèles de machine learning pour prévenir les risques d'inondations en temps réel.</p>
+                    <a href="{% url 'projects' %}" class="text-indigo-600 mt-4 inline-block">Voir plus</a>
+                </div>
+                <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-bold text-indigo-600">Détection de fraudes</h3>
+                    <p class="mt-2 text-gray-700">Un algorithme non supervisé pour identifier les comportements frauduleux dans la consommation énergétique.</p>
+                    <a href="{% url 'projects' %}" class="text-indigo-600 mt-4 inline-block">Voir plus</a>
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Détection de fraudes</h3>
-            <p>Un algorithme non supervisé pour identifier les comportements frauduleux dans la consommation énergétique.</p>
-            <a href="{% url 'projects' %}">Voir plus</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="section">
-    <h2>Compétences</h2>
-    <div class="skills">
-        <div class="card">
-            <h3>Django</h3>
-            <p>Création d'applications web robustes et sécurisées.</p>
+    <section class="flex">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-indigo-600 mb-8">Compétences</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold text-indigo-600">Django</h3>
+                    <p class="mt-2 text-gray-700">Création d'applications web robustes et sécurisées.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold text-indigo-600">Machine Learning</h3>
+                    <p class="mt-2 text-gray-700">Analyse de données, classification et prédictions.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <h3 class="text-xl font-semibold text-indigo-600">Docker</h3>
+                    <p class="mt-2 text-gray-700">Déploiement d'applications dans des environnements conteneurisés.</p>
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Machine Learning</h3>
-            <p>Analyse de données, classification et prédictions.</p>
-        </div>
-        <div class="card">
-            <h3>Docker</h3>
-            <p>Déploiement d'applications dans des environnements conteneurisés.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-{% endblock %}
+{% endblock content %}

@@ -12,30 +12,40 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.your-email-provider.com'  # Exemple: smtp.gmail.com
-EMAIL_PORT = 587  # Ou 465 pour SSL
-EMAIL_USE_TLS = True  # Ou EMAIL_USE_SSL = True si vous utilisez SSL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True  
 EMAIL_HOST_USER = 'votre_email@example.com'
 EMAIL_HOST_PASSWORD = 'votre_mot_de_passe'
 DEFAULT_FROM_EMAIL = 'votre_email@example.com'
 DEFAULT_TO_EMAIL = 'destinataire@example.com'
+EMAIL_FILE_PATH = '/tmp/app-messages'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6)$@l81a-k7w3#z^dnhxj79+g$mv%(lr62ua5+b71i@j(9apt7'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')
+
+DEBUG = os.getenv('DEBUG')
+
+LOGIN_URL, LOGIN_REDIRECT_URL = os.getenv('LOGIN_URL'), os.getenv("LOGIN_REDIRECT_URL")
+
+EMAIL_LIST = os.getenv('EMAIL_LIST')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,13 +57,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'port_data',
     'Authentification',
+    'Photo_online',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -85,9 +96,13 @@ WSGI_APPLICATION = 'Data_Portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'gptdb',
+        "USER":'erick',
+        "PASSWORD":"Endrick@#",
+        "HOST":"localhost",
+        "PORT":'5432',
+        }
 }
 
 
@@ -116,11 +131,19 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'Authentification.validators.ContainsLetterValidator',
     },
-    {
-        'NAME': 'Authentification.validators.ContainsNumberValidator',
-    }
+    #{
+     #   'NAME': 'Authentification.validators.ContainsNumberValidator',
+    #}
 ]
 
+# mises en caches
+CACHES ={
+    'default':{
+        'BACKEND':
+            'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION': 'cache_data',
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -146,6 +169,9 @@ STATIC_FILES = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media/')
 
 # Authentification user
 

@@ -29,3 +29,14 @@ class InscriptionForm(UserCreationForm):
         fields = ('username', 'email', "first_name", "last_name")
 
 
+
+class AssistantForm(forms.Form):
+
+    message = forms.CharField(max_length=500,
+                              label='Posez-moi une question',
+                              widget=forms.TextInput(
+                                  attrs={"class":'form-control',
+                                         'placeholder': 'Posez moi une question'
+                                         }
+                              ))
+    

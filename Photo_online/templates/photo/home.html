@@ -1,0 +1,13 @@
+{% extends 'photo/base.html' %}
+{% load static %}
+
+{% block content %}
+
+   <mark><h3>Online Gallery</h3></mark>
+   <a href="{% url 'photo_upload' %}">Téleverser une image</a>
+   {% for photo in photos %}
+      <img src="{{ photo.image.url }}" width="200" >
+      <p>{{ photo.title }}</p>
+
+   {% endfor %}
+{% endblock content %}

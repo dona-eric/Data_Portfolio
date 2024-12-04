@@ -1,25 +1,27 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
 {% block content %}
-<h2>Mes Services</h2>
+    <h2 class="text-3xl font-semibold text-indigo-600 text-center py-6">Mes Services</h2>
 
-<section class="section-services">
-    {% if service %}
-        <div class="services-container">
-            {% for service_pro in service %}
-                <div class="service-card">
-                    <h3>{{ service_pro.title }}</h3>
-                    <p>{{ service_pro.description }}</p>
-                    <p><strong>Prix :</strong> {{ service_pro.price }}€</p>
-                    {% if service_pro.icon %}
-                        <i class="{{ service_pro.icon }}"></i>
-                    {% endif %}
-                    <a href="{% url 'service_request' %}" class="btn btn-primary">Demander ce service</a>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p>Aucun service disponible pour le moment.</p>
-    {% endif %}
-</section>
-{% endblock %}
+    <section class="section-services py-8">
+        {% if service %}
+            <div class="services-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for service_pro in service %}
+                    <div class="service-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        {% if service_pro.icon %}
+                            <div class="text-4xl text-indigo-600 mb-4">
+                                <i class="{{ service_pro.icon }}"></i>
+                            </div>
+                        {% endif %}
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ service_pro.title }}</h3>
+                        <p class="text-gray-600 mb-4">{{ service_pro.description }}</p>
+                        <p class="font-semibold text-indigo-600 mb-4"><strong>Prix :</strong> {{ service_pro.price }}€</p>
+                        <a href="{% url 'service_request' %}" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">Demander ce service</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-gray-600">Aucun service disponible pour le moment.</p>
+        {% endif %}
+    </section>
+{% endblock content %}

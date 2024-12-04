@@ -1,0 +1,22 @@
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+
+    <h2>Votre Assistant IA </h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit">Envoyer</button>
+
+        {% if response_user %}
+            <div class="response">
+                <strong>Assistant IA: </strong> {{ response_user }}
+            </div>
+
+        {% endif %}
+
+    </form>
+
+{% endblock %}

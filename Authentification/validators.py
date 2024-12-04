@@ -11,7 +11,6 @@ class ContainsLetterValidator:
         return 'Votre mot de passe doit contenir au moins une lettre majuscule ou minuscule.'
     
 
-
 class ContainsNumberValidator:
     def validate_number(self, password, user = None):
         if not any(character.is_digit() for character in password):

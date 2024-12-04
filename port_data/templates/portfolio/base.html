@@ -1,66 +1,69 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
-    <link rel="icon" type="images/favicon.png" href="{% static 'images/favicon.png' %}" />
-
-    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="icon" href="{% static 'images/favicon.png' %}" />
+    <title>Mon Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    
-<!-- menu de navigation -->
-    <header>
-        <nav class = 'menu'>
-            <ul>
-                <li><a href="{% url 'home' %}"> Home </a></li>
-                <li><a href="{% url 'about' %}">About me </a></li>
-                <li><a href ="{% url 'projects' %}">Projects</a></li>
-                <li><a href="{% url 'contacts-us' %}">Contacts</a></li>
-                <li><a href="{%url 'blog' %}">Articles</a></li>
-            </ul>
-        </nav>
+<body class="bg-light font-sans leading-normal tracking-normal">
+
+    <!-- Navigation -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container px-5">
+            <!--<a class="navbar-brand" href="{% url 'home' %}"><span class="fw-bolder text-primary">Data World</span></a>-->
+            <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacts-us' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Articles</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <main id="content-principal">
-        <!-- contenu principal-->
-        {% block content %} {% endblock %}
+    <!-- Main Content -->
+    <main id="content-principal" class="my-8">
+        {% block content %} {% endblock content %}
     </main>
-    <section class="contacts-services">
-        <p>Pour plus d'informations, contactez-moi <a href="{% url 'contacts-us' %}">Contactez-moi</a></p>
 
-        <p>Pour vos demandes de services : <a href="{% url 'services_request' %}">Demandez un service</a></p>
-
+    <!-- Info Section and Newsletter -->
+    <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+            <div class="row justify-content-between">
+                <div class="col-12 col-md-6 mb-3">
+                    <h3 class="fw-bolder">Pour plus d'informations</h3>
+                    <p>Contactez-moi : <a href="{% url 'contacts-us' %}" class="text-white">Contactez-moi</a></p>
+                    <p>Pour vos demandes de services : <a href="{% url 'services_request' %}" class="text-white">Demandez un service</a></p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3 class="fw-bolder">Newsletters</h3>
+                    <p>Pour recevoir des nouvelles, inscrivez-vous à notre newsletter :</p>
+                    <i><a class="news-letters" href="{% url 'news' %}">Des nouvelles chaque semaine</a></i>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <h3>Newsletters</h3>
-    <section>
-        <p>Pour recevoir des nouvelles</p>
-        <h3>Inscrivez-vous</h3>
-        <form action="" method="post">
-            <label for="name">Enter your name:</label>
-            <input type="name" id="email"  required>
-            <label for="lastname">Enter your Lastname:</label>
-            <input type = "lastname" id="lastname" required>
-            <label for="email">Your Email :</label>
-            <input type="email" id="email" required>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-
-
-    <footer>
-        <p>@2024 - KOULODJI Eric *** Nous respectons votre vie privée  ***</p>
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6 text-center">
+        <p>&copy; 2024 - KOULODJI Eric | Nous respectons votre vie privée</p>
     </footer>
 
-
-
-
-
-
-
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

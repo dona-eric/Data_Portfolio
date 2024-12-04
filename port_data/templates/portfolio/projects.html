@@ -3,41 +3,52 @@
 
 {% block content %}
 
-<title>Projects</title>
-<h2>Mes Projets</h2>
-<section class="section-projects">
-    {% if project %}
-    <div class="projects-container">
-        {% for pro in project %}
-        <div class="project-card">
-            <h3>{{ pro.title }}</h3>
-            <p>{{ pro.description }}</p>
-            <p><strong>Compétences utilisées: </strong> {{pro.skills_used}}</p>
-
-            {% if pro.image_project %}
-                <img class="project-image" src="{{ pro.image_project}}">
-            {% else %}
-                <img class="image-original" src="{% static 'images/ml.png' %}">
-            {% endif %}
-            <div class="links-projects">
-                {% if pro.github_link %}
-                    <a href="{{ pro.github_link}}" target="_blank">Lien Github</a>
-                {% else %}
-                    <p>Pas de Project disponibles</p>
-                {% endif %}
-
-                {% if pro.url_project %}
-                    <p>Voici un démo du project : {{ pro.title}} </p>
-                    <a href="{{ pro.url_project}}" target="_blank">Voir le démo</a>
-                {% endif %}
+    <title>Mes Projets</title>
+    <section class="py-5">
+        <div class="container px-5 mb-5">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder mb-0 text-primary">Mes Projets</h1>
             </div>
-            <p class="project-date">Mis à jour le : {{ pro.date_project_update }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% else%}
-        <p>Aucun projet disponible </p>
-    {% endif %}
-</section>
+            {% if project %}
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    {% for pro in project %}
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                    <h2 class="fw-bolder">{{ pro.title }}</h2>
+                                    <p>{{ pro.description }}</p>
+                                    <p><strong>Compétences utilisées:</strong> {{ pro.skills_used }}</p>
 
-{% endblock %}
+                                    {% if pro.image_project %}
+                                        <img class="img-fluid" src="{{ pro.image_project }}" alt="{{ pro.title }}">
+                                    {% else %}
+                                        <img class="img-fluid" src="{% static 'images/ml.png' %}" alt="Image de projet">
+                                    {% endif %}
+
+                                    <div class="links-projects mt-4">
+                                        {% if pro.github_link %}
+                                            <a href="{{ pro.github_link }}" target="_blank" class="btn btn-outline-primary btn-sm">Voir sur Github</a>
+                                        {% else %}
+                                            <p class="text-muted">Pas de lien Github disponible</p>
+                                        {% endif %}
+
+                                        {% if pro.url_project %}
+                                            <a href="{{ pro.url_project }}" target="_blank" class="btn btn-outline-secondary btn-sm mt-2">Voir la démo</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+                <p class="text-center text-gray-600">Aucun projet disponible.</p>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}

@@ -2,42 +2,55 @@
 {% load static %}
 
 {% block content %}
-<h2>À Propos</h2>
-<section class="section-about-me">
-    <h3>Qui suis-je ?</h3>
-    {% if about %}
-        <p>
-            Je suis {{ about.nom }} {{ about.prenoms }}, {{ about.biography }}
-        </p>
-        {% if about.profil_pictures %}
-            <img class="photo-about" src="{{ about.profil_pictures.url }}" alt="Photo de profil">
-        {% else %}
-            <img class="photo-about" src="{% static 'images/photo_pictures.jpg' %}" alt="Photo de profil par defaut">
-        {% endif %}
-        {% if about.resume_link %}
-            <p><a href="{{ about.resume_link }}">Télécharger mon CV</a></p>
-        {% endif %}
-    {% else %}
-        <p>Les informations à propos de moi ne sont pas disponibles pour le moment.</p>
-    {% endif %}
-</section>
+    <div class="content-about">
+        <h2>À Propos</h2>
 
-<h2>Mon Parcours</h2>
-<section>
-    {% if about %}
-        <p>{{ about.biography }}</p>
-    {% else %}
-        <p>Aucune information sur le parcours pour le moment.</p>
-    {% endif %}
-</section>
+        <!-- Section "Qui suis-je ?" -->
+        <section class="who is me ">
+            <h3>Qui suis-je ?</h3>
 
-<h2>Mes Compétences</h2>
-<section>
-    <p>
-        Durant mon parcours académique comme professionnel, j'ai acquis plusieurs compétences
-        techniques et personnelles. Pour en savoir plus : 
-        <a href="{% url 'skills' %}">Mes compétences</a>
-    </p>
-</section>
-{% endblock %}
+            {% if about %}
+                <p class="text-lg mb-4">
+                    Je suis <span class="font-semibold">{{ about.nom }} {{ about.prenoms }}</span>, {{ about.biography }}
+                </p>
 
+                <!-- Photo de profil -->
+                {% if about.profil_pictures %}
+                    <img src="{{ about.profil_pictures.url }}" alt="Photo de profil" width="300" height="" aria-autocomplete="both" aria-hidden="true">
+                {% else %}
+                    <img src="{% static 'images/photo_pictures.jpg' %}" alt="Photo de profil par défaut" width="100">
+                {% endif %}
+
+                <!-- Lien vers le CV -->
+                {% if about.resume_link %}
+                    <p class="about-me cv" >
+                        <a href="{{ about.resume_link }}">Télécharger mon CV</a>
+                    </p>
+                {% endif %}
+            {% else %}
+                <p class="text-center text-gray-400">Les informations à propos de moi ne sont pas disponibles pour le moment.</p>
+            {% endif %}
+        </section>
+
+        <!-- Section "Mon Parcours" -->
+        <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-8">Mon Parcours</h2>
+        <section class="bg-gray-100 text-gray-800 rounded-lg shadow-lg p-8">
+            {% if about %}
+                <p class="text-lg">{{ about.biography }}</p>
+            {% else %}
+                <p>Aucune information sur le parcours pour le moment.</p>
+            {% endif %}
+        </section>
+
+        <!-- Section "Mes Compétences" -->
+        <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-8 mt-12">Mes Compétences</h2>
+        <section class="bg-gray-100 text-gray-800 rounded-lg shadow-lg p-8">
+            <p class="text-lg">
+                Durant mon parcours académique et professionnel, j'ai acquis plusieurs compétences
+                techniques et personnelles. De l'univers de la Physique et des mathématiques au monde de la Data Science et de 
+                l'Intelligence Artificielle,vous devez etre conscients qu'il y a d'énormes compétences que je dois acquérir.Pour en savoir plus :
+                <a href="{% url 'skills' %}">Mes compétences</a>
+            </p>
+        </section>
+    </div>
+{% endblock content %}

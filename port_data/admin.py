@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Project, Skill, Newsletter, Article,Contact, About, ServiceRequest, Service
+from .models import Project, Skill, Newsletter, Article, Contact, About, ServiceRequest, Service
 # Register your models here.
 
 

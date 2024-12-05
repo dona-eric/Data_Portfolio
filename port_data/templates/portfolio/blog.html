@@ -19,7 +19,7 @@
                             <p class="px-4 pb-4 text-gray-700">{{ blog.date_published }}</p>
 
                             <!-- Image de l'article -->
-                            {% ooif blog.image_blog %}
+                            {% if blog.image_blog %}
                                 <img class="w-full h-48 object-cover" src="{{ blog.image_blog }}" alt="Image du blog">
                             {% else %}
                                 <img class="w-full h-48 object-cover" src="{% static 'images/ml.png' %}" alt="Image par défaut">

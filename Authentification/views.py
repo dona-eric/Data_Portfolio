@@ -8,9 +8,10 @@ from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from Authentification.chatbot import get_response
 from django.http import JsonResponse
+from django.contrib import messages
+
+
 # vue pour la connexion utilisateur
-
-
 
 def home(request):
     return render(request, 'portfolio/home.html')
@@ -49,7 +50,7 @@ class LoginView(View):
 # deconnexion des utilisateurs
 
 def logout_user(request):
-    logout(request)
+    messages.success(request, "Logout Successfully !")
     return redirect('home')
 
 

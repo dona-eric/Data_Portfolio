@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#2c3e50" rx="12"/>
+  <path d="M10 54V34l14-10 14 12 16-20v38z" fill="#ffffff" opacity="0.8"/>
+  <circle cx="24" cy="22" r="6" fill="#ffffff"/>
+  <path d="M10 34v-14l14 10 14-8 16 12" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <text x="32" y="58" text-anchor="middle" font-size="12" fill="#ffffff" font-family="Arial, sans-serif" font-weight="bold">DataWorld</text>
+</svg>

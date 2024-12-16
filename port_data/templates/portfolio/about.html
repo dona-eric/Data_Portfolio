@@ -1,56 +1,166 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-
 {% block content %}
-    <div class="content-about">
-        <h2>À Propos</h2>
-
-        <!-- Section "Qui suis-je ?" -->
-        <section class="who is me ">
-            <h3>Qui suis-je ?</h3>
-
-            {% if about %}
-                <p class="text-lg mb-4">
-                    Je suis <span class="font-semibold">{{ about.nom }} {{ about.prenoms }}</span>, {{ about.biography }}
-                </p>
-
-                <!-- Photo de profil -->
-                {% if about.profil_pictures %}
-                    <img src="{{ about.profil_pictures.url }}" alt="Photo de profil" width="300" height="" aria-autocomplete="both" aria-hidden="true">
-                {% else %}
-                    <img src="{% static 'images/photo_pictures.jpg' %}" alt="Photo de profil par défaut" width="100">
-                {% endif %}
-
-                <!-- Lien vers le CV -->
-                {% if about.resume_link %}
-                    <p class="about-me cv" >
-                        <a href="{{ about.resume_link }}">Télécharger mon CV</a>
-                    </p>
-                {% endif %}
-            {% else %}
-                <p class="text-center text-gray-400">Les informations à propos de moi ne sont pas disponibles pour le moment.</p>
-            {% endif %}
-        </section>
-
-        <!-- Section "Mon Parcours" -->
-        <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-8">Mon Parcours</h2>
-        <section class="bg-gray-100 text-gray-800 rounded-lg shadow-lg p-8">
-            {% if about %}
-                <p class="text-lg">{{ about.biography }}</p>
-            {% else %}
-                <p>Aucune information sur le parcours pour le moment.</p>
-            {% endif %}
-        </section>
-
-        <!-- Section "Mes Compétences" -->
-        <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-8 mt-12">Mes Compétences</h2>
-        <section class="bg-gray-100 text-gray-800 rounded-lg shadow-lg p-8">
-            <p class="text-lg">
-                Durant mon parcours académique et professionnel, j'ai acquis plusieurs compétences
-                techniques et personnelles. De l'univers de la Physique et des mathématiques au monde de la Data Science et de 
-                l'Intelligence Artificielle,vous devez etre conscients qu'il y a d'énormes compétences que je dois acquérir.Pour en savoir plus :
-                <a href="{% url 'skills' %}">Mes compétences</a>
-            </p>
-        </section>
-    </div>
+            <!--ge Content-->
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">About me</span></h1>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+                        <!-- Experience Section-->
+                        <section>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">Experience</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+                                <a class="btn btn-primary px-4 py-3" href="https://fr.overleaf.com/project/66001c90a2046a27cd6b8318">
+                                    <div class="d-inline-block bi bi-download me-2"></div>
+                                    Download Resume
+                                </a>
+                            </div>
+                            <!--experience Card-->
+                            <div class="card shadow border- rounded-4 mb-5">
+                                <div class="card-body4 p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Octobre 2024 - maintenant</div>
+                                                <div class="small fw-bolder">Analyse de données | Developer Machine Learning</div>
+                                                <div class="small text-muted">NerdX Digital</div>
+                                                <div class="small text-muted">Bénin</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">Analyse des données pour prévoir l'évolution de NO2 et CO2 dans l'écosystème verte</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Septembre- Aout 2024</div>
+                                                <div class="small fw-bolder">Data Scientist/Developer NLP</div>
+                                                <div class="small text-muted">Online</div>
+                                                <div class="small text-muted">Benin-France</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>Extraction des données ( des avis des clients) de la compagnie aérienne de British Airways. Analyse des données textuelles et développer des modèles de langage naturel pour identifier le sentiement des voyageurs et les thèmes recurrents dans les avis des utilisateurs.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Septembre-Aout 2024</div>
+                                                <div class="small fw-bolder">Developer Machine Learning</div>
+                                                <div class="small text-muted">British Airways Compaign</div>
+                                                <div class="small text-muted">Bénin - A distance</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>Analyse de données des clients et utlisateurs; developper les modèles de machine Learning et  statistiques pour prédire si un client réserver un vol ou non. Mise en place des apis TripeApp qui sera intégré dans une application pour aider les voyageurs à réserver leurs vols ou faire tout autre modification possibles.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Education Section-->
+                        <section>
+                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>
+                            <!-- Education Card 1-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">2020 - 2024</div>
+                                                <div class="mb-2">
+                                                    <div class="small fw-bolder">Université d'Abomey-Calavi</div>
+                                                    <div class="small text-muted">FAST</div>
+                                                </div>
+                                                <div class="fst-italic">
+                                                    <div class="small text-muted">Licence</div>
+                                                    <div class="small text-muted">Physique Fondamentale</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Education Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">Avr. ~ Sept. 2024</div>
+                                                <div class="mb-2">
+                                                    <div class="small fw-bolder">AfricaTechup-Tour</div>
+                                                    <div class="small text-muted">Isherro</div>
+                                                </div>
+                                                <div class="fst-italic">
+                                                    <div class="small text-muted"></div>
+                                                    <div class="small text-muted">Data Scientist/IA</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Divider-->
+                        <div class="pb-5"></div>
+                        <!-- Skills Section-->
+                        <section>
+                            <!-- Skillset Card-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <!-- Professional skills list-->
+                                    <div class="mb-5">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
+                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Machine Learning</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Analyse de données</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Développement Web Django</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Natural Language Processing</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Deep Learning ~ Computer Vision</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Programmation Python</div></div>
+                                        </div>
+                                    </div>
+                                    <!-- Languages list-->
+                                    <div class="mb-0">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
+                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Pytorch - Tensorflow/Keras</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">R</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SQL</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Django - FastAPI</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
 {% endblock content %}

@@ -1,43 +1,30 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-
 {% block content %}
-    <title>Articles</title>
-    <div class="max-w-5xl mx-auto px-6 py-12">
-        <h2 class="text-3xl font-semibold text-center text-indigo-600 mb-8">Mes Articles</h2>
-
-        <section class="articles_list">
-            {% if blog_article %}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {% for blog in blog_article %}
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <!-- Titre de l'article -->
-                            <h3 class="text-xl font-semibold text-indigo-600 p-4">{{ blog.title }}</h3>
-
-                            <!-- Contenu de l'article -->
-                            <p class="px-4 pb-4 text-gray-700">{{ blog.content|safe }}</p>
-                            <p class="px-4 pb-4 text-gray-700">{{ blog.date_published }}</p>
-
-                            <!-- Image de l'article -->
-                            {% if blog.image_blog %}
-                                <img class="w-full h-48 object-cover" src="{{ blog.image_blog }}" alt="Image du blog">
-                            {% else %}
-                                <img class="w-full h-48 object-cover" src="{% static 'images/ml.png' %}" alt="Image par défaut">
-                            {% endif %}
-
-                            <!-- Lien vers l'article complet -->
-                            <div class="p-4">
-                                {% if blog.url_blog %}
-                                    <p class="text-gray-600 text-sm">Pour lire l'intégralité de l'article, veuillez consulter :</p>
-                                    <a href="{{ blog.url_blog }}" class="text-indigo-500 hover:text-indigo-400 font-semibold">Lire plus</a>
-                                {% endif %}
+            </nav>
+            <!--Projects articlces-->
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Articles</span></h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <!-- Project Card 1-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Article 1: Imputation des valeurs manquantes </h2>
+                                            <p>Remplissez les valeurs manquantes à l'aide des cartes thermiques lors de l'analyse de données.</p>
+                                            <a class="linku-projects1" href="https://medium.com/@koulodjiric/">Voir plus</a>
+                                        </div>
+                                        <img class="img-fluid" src="assets/impute.png" width="300" alt="..." />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
-            {% else %}
-                <p class="text-center text-gray-500">Aucun article ou blog disponible.</p>
-            {% endif %}
-        </section>
-    </div>
+            </section>
 {% endblock content %}

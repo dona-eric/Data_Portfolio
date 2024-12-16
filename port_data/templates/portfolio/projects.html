@@ -3,52 +3,64 @@
 
 {% block content %}
 
-    <title>Mes Projets</title>
-    <section class="py-5">
-        <div class="container px-5 mb-5">
-            <div class="text-center mb-5">
-                <h1 class="display-5 fw-bolder mb-0 text-primary">Mes Projets</h1>
-            </div>
-            {% if project %}
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-11 col-xl-9 col-xxl-8">
-                    {% for pro in project %}
-                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                        <div class="card-body p-0">
-                            <div class="d-flex align-items-center">
-                                <div class="p-5">
-                                    <h2 class="fw-bolder">{{ pro.title }}</h2>
-                                    <p>{{ pro.description }}</p>
-                                    <p><strong>Compétences utilisées:</strong> {{ pro.skills_used }}</p>
-
-                                    {% if pro.image_project %}
-                                        <img class="img-fluid" src="{{ pro.image_project }}" alt="{{ pro.title }}">
-                                    {% else %}
-                                        <img class="img-fluid" src="{% static 'images/ml.png' %}" alt="Image de projet">
-                                    {% endif %}
-
-                                    <div class="links-projects mt-4">
-                                        {% if pro.github_link %}
-                                            <a href="{{ pro.github_link }}" target="_blank" class="btn btn-outline-primary btn-sm">Voir sur Github</a>
-                                        {% else %}
-                                            <p class="text-muted">Pas de lien Github disponible</p>
-                                        {% endif %}
-
-                                        {% if pro.url_project %}
-                                            <a href="{{ pro.url_project }}" target="_blank" class="btn btn-outline-secondary btn-sm mt-2">Voir la démo</a>
-                                        {% endif %}
+            <!-- Projects Section-->
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Mes Projects</span></h1>
+                    </div>
+                    {% if project %}
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            {% for pro in project %}
+                            <!-- Project Card 1-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <div class="p-5">
+                                                <h2 class="fw-bolder">{{ pro.title }}</h2>
+                                                <p>{{ pro.description }}</p>
+                                                <p><strong>Compétences utilisées:</strong> {{ pro.skills_used }}</p>
+            
+                                                {% if pro.image_project %}
+                                                    <img class="img-fluid" src="{{ pro.image_project }}" alt="{{ pro.title }}">
+                                                {% else %}
+                                                    <img class="img-fluid" src="{% static 'images/ml.png' %}" alt="Image de projet">
+                                                {% endif %}
+            
+                                                <div class="links-projects mt-4">
+                                                    {% if pro.github_link %}
+                                                        <a href="{{ pro.github_link }}" target="_blank" class="btn btn-outline-primary btn-sm">Voir sur Github</a>
+                                                    {% else %}
+                                                        <p class="text-muted">Pas de lien Github disponible</p>
+                                                    {% endif %}
+            
+                                                    {% if pro.url_project %}
+                                                        <a href="{{ pro.url_project }}" target="_blank" class="btn btn-outline-secondary btn-sm mt-2">Voir la démo</a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    {% endfor %}
+                    {% else %}
+                        <p class="text-center text-gray-600">Aucun projet disponible.</p>
+                    {% endif %}
                 </div>
-            </div>
-            {% else %}
-                <p class="text-center text-gray-600">Aucun projet disponible.</p>
-            {% endif %}
-        </div>
-    </section>
+            </section>
+
+            <!-- Call to action section-->
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'contacts-us' %}">Contact me</a>
+                    </div>
+                </div>
+            </section>
 
 {% endblock content %}

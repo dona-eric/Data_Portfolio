@@ -20,7 +20,6 @@ class HomeView(TemplateView):
 
 # Page "À propos de moi"
 
-
 class AboutView(DetailView):
     model = About
     template_name = 'portfolio/about.html'

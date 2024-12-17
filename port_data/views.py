@@ -135,52 +135,45 @@ def services_request(request, id_service=None):  # Paramètre service_id ajouté
 
 """vue pour les newsletters """
 
+from django.http import HttpResponse
+
 def newsletters(request):
     if request.method == 'POST':
         form = NewsletterForms(request.POST)
         if form.is_valid():
             try:
                 nom = form.cleaned_data['nom']
+                prenom = form.cleaned_data['prenom']
                 email = form.cleaned_data['email']
                 validate_email(email)
 
-                # verifier si le mail existe déja
-                news, created = Newsletter.objects.get_or_create(email = email,
-                                                                 defaults={"nom": nom})
-                if created:
-
-                    admin_message = f"""
-                                Nouvelle Inscription à la newsletter !
-                                Details de l'inscription :
-                                -Nom :{nom}
-                                -Email: {email}
-                                Pour tous les details , connectez-vous au site de l'administrateur
-                                """
-                    send_mail(
-                        subject= 'Nouvelle inscription à la Newsletter',
-                        message= admin_message,
-                        from_email= settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=[settings.ADMIN_EMAIL],
-                        fail_silently= False,
-                    )
-                    messages.success(request, f'Merci {nom} ! Vous etes inscrit à la newsletter')
+                # Vérifier si le mail existe déjà
+                news = Newsletter.objects.filter(email=email).first()
+                if news:
+                    messages.info(request, "Cette adresse est déjà inscrite à notre newsletter")
                 else:
-                    messages.info(
-                        request, "Cette adresse est déja inscrite à notre newsletter"
-                    )
-                return redirect('home')
+                    news = Newsletter(nom=nom, prenom=prenom, email=email)
+                    news.save()
+                    messages.success(request, f"Merci {nom} ! Vous êtes inscrit à la newsletter")
+                    print("Nouvelle inscription :", news)
+                return redirect('home')  # Assurez-vous que 'home' est défini dans vos URLs
             except ValidationError:
-                messages.error(
-                    request, "Veuillez fournir une adresse email valide"
-                )
+                messages.error(request, "Veuillez fournir une adresse email valide.")
             except Exception as e:
-                messages.error(request, "Une erreur est survenue lors de l'inscription. Veuillez réessayer")
+                print("Erreur lors de l'inscription :", e)
+                messages.error(request, "Une erreur est survenue. Veuillez réessayer.")
+        else:
+            # Formulaire invalide
+            messages.error(request, "Veuillez corriger les erreurs dans le formulaire.")
     else:
         form = NewsletterForms()
-    return render(request, 'portfolio/newsletters.html', 
-                  {'form': form,
-                   'title': 'Inscription à la newsletter',
-                   "description": "Restez informé de nos dernières actualités"})
+
+    # Rendu de la page avec le formulaire
+    return render(request, 'portfolio/newsletters.html', {
+        'form': form,
+        'title': 'Inscription à la newsletter',
+        "description": "Restez informé de nos dernières actualités"
+    })
 
 
 

@@ -41,7 +41,7 @@ class ServiceRequestForms(forms.ModelForm):
 class NewsletterForms(forms.ModelForm):
     class Meta:
         model  = Newsletter
-        fields = ['nom', 'prenom', 'email']
+        fields = ['nom', 'prenom', "email"]
 
     widgets = {
         'nom': forms.TextInput(attrs={'placeholder': "Nom", "class": "form-control"}),

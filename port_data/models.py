@@ -96,11 +96,11 @@ class ServiceRequest(models.Model):
 
 ## models pour la newsletter 
 class Newsletter(models.Model):
-    nom = models.CharField(max_length=200, verbose_name='name')
-    prenom = models.CharField(max_length=500, verbose_name = 'surname')
+    nom = models.CharField(max_length=100, verbose_name='name')
+    prenom = models.CharField(max_length=200, verbose_name = 'surname')
     email = models.EmailField(unique=True, blank=True, null=False)
     subscribed_at = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(auto_created=True)
 
     def __str__(self):
         return self.email

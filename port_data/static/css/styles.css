@@ -444,14 +444,13 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
-/* rtl:raw:
+rtl:raw:
 [type="tel"],
 [type="url"],
 [type="email"],
 [type="number"] {
   direction: ltr;
 }
-*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -604,7 +603,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
+  background-color: #ceb1b1;
   border: 1px solid var(--bs-border-color);
   border-radius: 0.375rem;
   max-width: 100%;
@@ -1829,7 +1828,7 @@ progress {
 
 .table-secondary {
   --bs-table-color: #000;
-  --bs-table-bg: #f9d2e6;
+  --bs-table-bg: #74bacf;
   --bs-table-border-color: #e0bdcf;
   --bs-table-striped-bg: #edc8db;
   --bs-table-striped-color: #000;
@@ -1987,7 +1986,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-  color: #6c757d;
+  color: #61829e;
 }
 
 .form-control {
@@ -1998,9 +1997,9 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: #b47e7e;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #91b3d4;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -2046,7 +2045,7 @@ progress {
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
   color: #212529;
-  background-color: #e9ecef;
+  background-color: #a4b1be;
   pointer-events: none;
   border-color: inherit;
   border-style: solid;
@@ -2150,7 +2149,7 @@ textarea.form-control-lg {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: #e0b0b0;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -2170,7 +2169,7 @@ textarea.form-control-lg {
 .form-select:focus {
   border-color: #8f98f9;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(30, 48, 243, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(34, 52, 245, 0.25);
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   padding-right: 0.75rem;
@@ -3643,12 +3642,12 @@ textarea.form-control-lg {
 
 .nav-tabs {
   --bs-nav-tabs-border-width: 1px;
-  --bs-nav-tabs-border-color: #dee2e6;
+  --bs-nav-tabs-border-color: #71a6db;
   --bs-nav-tabs-border-radius: 0.375rem;
-  --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
+  --bs-nav-tabs-link-hover-border-color: #7fb0e0 #7090b1 #7eb8f3;
   --bs-nav-tabs-link-active-color: #495057;
-  --bs-nav-tabs-link-active-bg: #fff;
-  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
+  --bs-nav-tabs-link-active-bg: #61ca728a;
+  --bs-nav-tabs-link-active-border-color: #834b756c #85b4e4 #2cbde9e1;
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
 .nav-tabs .nav-link {
@@ -3681,7 +3680,7 @@ textarea.form-control-lg {
 
 .nav-pills {
   --bs-nav-pills-border-radius: 0.375rem;
-  --bs-nav-pills-link-active-color: #fff;
+  --bs-nav-pills-link-active-color: #41ce2f;
   --bs-nav-pills-link-active-bg: #1e30f3;
 }
 .nav-pills .nav-link {
@@ -3771,7 +3770,7 @@ textarea.form-control-lg {
   margin-right: var(--bs-navbar-brand-margin-end);
   font-size: var(--bs-navbar-brand-font-size);
   color: var(--bs-navbar-brand-color);
-  text-decoration: none;
+  text-decoration:#91b3d4;
   white-space: nowrap;
 }
 .navbar-brand:hover, .navbar-brand:focus {
@@ -3793,7 +3792,7 @@ textarea.form-control-lg {
 }
 .navbar-nav .show > .nav-link,
 .navbar-nav .nav-link.active {
-  color: var(--bs-navbar-active-color);
+  color: var(--bs-nav-tabs-link-active-color);
 }
 .navbar-nav .dropdown-menu {
   position: static;
@@ -3802,12 +3801,12 @@ textarea.form-control-lg {
 .navbar-text {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  color: var(--bs-navbar-color);
+  color: var(--bs-nav-tabs-link-active-color);
 }
 .navbar-text a,
 .navbar-text a:hover,
 .navbar-text a:focus {
-  color: var(--bs-navbar-active-color);
+  color: var(--bs-nav-tabs-link-active-border-color);
 }
 
 .navbar-collapse {
@@ -11682,13 +11681,13 @@ html {
     left: -4vw;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 962px) {
   .profile {
     height: 40vw;
     width: 40vw;
   }
   .profile .profile-img {
-    height: 45vw;
+    height: 40vw;
   }
   .profile .dots-1 {
     width: 1.5vw;
